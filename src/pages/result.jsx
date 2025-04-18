@@ -10,7 +10,7 @@ function Result() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://doassist-backend-production.up.railway.app/result');
+        const response = await axios.get('https://doassist-backend.onrender.com/result');
         setOutputValue(response.data.transcription); // Directly set the transcription
       } catch (error) {
         console.error("Error fetching result:", error);
