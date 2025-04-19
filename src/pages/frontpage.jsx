@@ -6,7 +6,7 @@ import Audio from '../assets/images/3497658.jpg'
 
 function Frontpage() {
   return (
-    <div className='container-fluid w-100 h-100 d-flex flex-column bg-dark'>
+    <div className='container-fluid w-100 h-100 d-flex flex-column '>
       <div className='w-100 p-1'>
         <Profile />
       </div>
