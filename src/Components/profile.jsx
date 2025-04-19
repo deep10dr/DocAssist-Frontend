@@ -12,7 +12,7 @@ function Profile() {
     }, []);
 
     return (
-        <div className='container-fluid d-flex align-items-center justify-content-end h-100 w-100 p-1'>
+        <div className='container-fluid d-flex align-items-center justify-content-end h-100 w-100 p-1 '>
             <img
                 src={value.name ? 'https://cdn-icons-png.flaticon.com/128/3135/3135715.png' : 'https://cdn-icons-png.flaticon.com/128/149/149071.png'}
                 alt="User Image"

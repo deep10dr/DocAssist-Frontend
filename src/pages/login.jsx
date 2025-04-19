@@ -68,7 +68,7 @@ function Login() {
         const response = await axios.post("https://doassist-backend.onrender.com/login", value);
         if (response.data.message === "ok") {
           setUserValue({ email: response.data.email, name: response.data.name });
-          window.location.href = "/record";
+          window.location.href = "/dashboard";
         } else if (response.data === "incorrect") {
           Swal.fire("Incorrect password");
         } else if (response.data === "not") {

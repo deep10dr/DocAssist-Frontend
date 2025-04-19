@@ -13,6 +13,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"; 
 import Daily_news from './pages/daily_news.jsx';
 import Question from './pages/question.jsx';
+import Frontpage from './pages/frontpage.jsx';
 function App() {
   useEffect(() => {
     AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
@@ -31,7 +32,8 @@ function App() {
           <Route path='/user' element={<User />} />
           <Route path='/question' element={<Question />} />
           <Route path='*' element={<ErrorPage />} />
-          <Route path='/daily' element={<Daily_news/>} />
+          <Route path='/news' element={<Daily_news/>} />
+          <Route  path='/dashboard' element={sessionStorage.getItem('user')? <Frontpage/> : <Navigate to="/login" />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,0 +1,67 @@
+.card-block {
+    width: 280px;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 15px;
+    position: relative;
+    transition: transform 0.3s ease;
+    background-color: #000;
+  }
+  
+  .card-block:hover {
+    transform: scale(1.03);
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+    opacity: 0.85;
+  }
+  
+  /* Title always visible */
+  .default-title {
+    position: absolute;
+    bottom: 10px; /* Increased space from bottom */
+    width: 100%;
+    color: #ffffff; /* Changed to a darker blue for better contrast */
+    font-size: 1.5rem; /* Slightly larger text */
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for better readability */
+  }
+  
+  
+  /* Hidden content until hover */
+  .hover-content {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-block:hover .hover-content {
+    opacity: 1;
+  }
+  
+  .hover-desc {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .goto-btn {
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 500;
+  }
+  

@@ -164,7 +164,7 @@ function Signup() {
 
           {/* Login Link */}
           <p className='small-text mt-3'>
-            Already have an account? <a href="#" onClick={() => navigate('/login')}>Log in</a>
+            Already have an account? <a href="#" onClick={() => navigate('/dashboard')}>Log in</a>
           </p>
         </form>
       </div>
