@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Profile from "../Components/profile";
+import Searching from '../assets/gifs/searching.gif'
 
 export const setUserValue = (user) => {
   sessionStorage.setItem("user", JSON.stringify(user));
@@ -29,6 +30,7 @@ function Login() {
     password: false,
     general: false,
   });
+  const [loading,setLoading] = useState(false);
 
   function handleChange(e) {
     const { name, value: inputValue } = e.target;
@@ -64,6 +66,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (validateForm()) {
+       setLoading(true);
       try {
         const response = await axios.post("https://doassist-backend.onrender.com/login", value);
         if (response.data.message === "ok") {
@@ -78,6 +81,9 @@ function Login() {
         console.error("Login failed:", error);
         setErrors((prev) => ({ ...prev, general: "Invalid email or password!" }));
         setShowTooltip((prev) => ({ ...prev, general: true }));
+      }
+      finally{
+        setLoading(false);
       }
     }
   }
@@ -158,6 +164,15 @@ function Login() {
           </p>
         </form>
       </div>
+      {loading && (
+  <div className="loading-overlay">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+   
+  </div>
+)}
+
     </div>
   );
 }

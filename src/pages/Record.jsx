@@ -108,7 +108,7 @@ function Record() {
       const formData = new FormData();
       formData.append("file", audioBlob, "audio.webm");
 
-      const res = await fetch("https://doassist-backend.onrender.com/upload", {
+      const res = await fetch("http://localhost:5000/upload", {
         method: "POST",
         body: formData,
       });

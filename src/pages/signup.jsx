@@ -10,6 +10,7 @@ function Signup() {
   const navigate = useNavigate();
   const [value, setValue] = useState({ name: '', email: '', password: '', confirmPassword: '', agree: false });
   const [errors, setErrors] = useState({});
+  const [loading,setLoading] = useState(false);
 
   function handleChange(e) {
     const { name, value: inputValue, type, checked } = e.target;
@@ -57,6 +58,7 @@ function Signup() {
    async function  handleSubmit(e) {
     e.preventDefault();
     if (validateForm()) {  
+      setLoading(true);
         try{
             const  senddata =  await axios.post("https://doassist-backend.onrender.com/signup",value);
              if(senddata.data == 'ok'){
@@ -76,6 +78,9 @@ function Signup() {
             }
         catch(error){
           alert(error);
+        }
+        finally{
+          setLoading(false);
         }  
 
     } 
@@ -168,6 +173,14 @@ function Signup() {
           </p>
         </form>
       </div>
+      {loading && (
+  <div className="loading-overlay">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+   
+  </div>
+)}
     </div>
   );
 }
