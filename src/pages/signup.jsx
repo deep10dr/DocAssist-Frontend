@@ -60,7 +60,7 @@ function Signup() {
     if (validateForm()) {  
       setLoading(true);
         try{
-            const  senddata =  await axios.post("https://doassist-backend.onrender.com/signup",value);
+            const  senddata =  await axios.post("https://doassist-backend-production.up.railway.app/signup",value);
              if(senddata.data == 'ok'){
               setValue({ name: '', email: '', password: '', confirmPassword: '', agree: false });
               Swal.fire("Success", "Account Created Successfully", "success"); 

@@ -8,7 +8,7 @@ function Start({ buttonText = "Start" }) {
   const navigate = useNavigate();
 
   const handleStartClick = () => {
-    navigate('/Record');
+    navigate('/dashboard');
   };
 
   return (
