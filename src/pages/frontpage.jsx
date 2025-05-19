@@ -22,7 +22,7 @@ function Frontpage() {
           />
           <div className='default-title'>Audio Conversion</div>
           <div className='hover-content'>
-            <p className='hover-desc'>Convert speech  into apparetaite medical result</p>
+            <p className='hover-desc'>Transcribe speech and generate appropriate medical results</p>
             <button className='btn btn-primary goto-btn' onClick={()=>{
               window.location.href="/record"
             }}>Go To</button>

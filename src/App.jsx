@@ -8,10 +8,11 @@ import Login from './pages/login.jsx';
 import Signup from './pages/signup.jsx'
 import Result from './pages/result.jsx'
 import User from './pages/user.jsx'
+import Login_page from './pages/login_page.jsx'
 import { BrowserRouter, Routes, Route ,Navigate} from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css"; 
-import Daily_news from './pages/daily_news.jsx';
+// import Daily_news from './pages/daily_news.jsx';
 import Question from './pages/question.jsx';
 import Frontpage from './pages/frontpage.jsx';
 function App() {
@@ -20,7 +21,7 @@ function App() {
   }, [])
 
   return (
-    <div className='container-fluid outer-class w-100 h-100 d-flex justify-content-center align-items-center'>
+    <div className='h-screen w-full bg-[#0c1821]'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Starter />} />
@@ -32,7 +33,7 @@ function App() {
           <Route path='/user' element={<User />} />
           <Route path='/question' element={<Question />} />
           <Route path='*' element={<ErrorPage />} />
-          <Route path='/news' element={<Daily_news/>} />
+          <Route path='/l' element={<Login_page />} />
           <Route  path='/dashboard' element={sessionStorage.getItem('user')? <Frontpage/> : <Navigate to="/login" />}/>
         </Routes>
       </BrowserRouter>

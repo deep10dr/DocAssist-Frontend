@@ -8,6 +8,7 @@ import { FaPlay, FaPause } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import CatImg from '../assets/images/4500_7_07.png';
 import Profile from '../Components/profile'
+import axios from 'axios'
 function Record() {
   const [isRecording, setIsRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
@@ -99,27 +100,30 @@ function Record() {
 
   const uploadAudio = async () => {
     if (!audioBlob) {
-      Swal.fire("Error", "No audio recorded", "error");
+      Swal.fire('Error', 'No audio recorded', 'error');
       return;
     }
 
     try {
-      setBtn(<span className="spinner-border spinner-border-sm"></span>);
+      setBtn(<span className='spinner-border spinner-border-sm'></span>);
       const formData = new FormData();
-      formData.append("file", audioBlob, "audio.webm");
+      formData.append('file', audioBlob, 'audio.webm');
 
-      const res = await fetch("http://localhost:5000/upload", {
-        method: "POST",
-        body: formData,
+      const res = await axios.post('http://127.0.0.1:8000/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
-      if (res.ok) {
-        Swal.fire("Success", "Audio uploaded successfully!", "success");
+      if (res.status === 200) {
+        console.log(res.data)
+        Swal.fire('Success', 'Audio uploaded successfully!', 'success');
+
       } else {
-        Swal.fire("Error", "Upload failed", "error");
+        Swal.fire('Error', 'Upload failed', 'error');
       }
     } catch (error) {
-      Swal.fire("Error", "Error uploading audio", "error");
+      Swal.fire('Error', 'Error uploading audio', 'error');
     } finally {
       setBtn(<IoMdCloudUpload className='size-20 ms-1' />);
     }
@@ -157,8 +161,7 @@ function Record() {
           </div>
 
           {audioBlob && (
-            <div className="mt-3 d-flex flex-column align-items-center">
-              {/* Play/Pause Button */}
+            <div className="mt-3 d-flex flex-column align-items-center ">
               <div className="audio-controls mb-3">
                 <button className="play-btn me-2" onClick={togglePlayPause}>
                   {isPlaying ? <FaPause className='size-20' /> : <FaPlay className='size-20' />}

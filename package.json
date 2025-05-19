@@ -10,8 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.7",
     "aos": "^2.3.4",
-    "axios": "^1.8.4",
+    "axios": "^1.9.0",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "mic-recorder-to-mp3": "^2.2.2",
@@ -22,7 +23,8 @@
     "react-media-recorder": "^1.7.1",
     "react-router-dom": "^7.1.5",
     "react-tooltip": "^5.28.0",
-    "sweetalert2": "^11.6.13"
+    "sweetalert2": "^11.6.13",
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
