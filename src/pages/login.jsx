@@ -217,32 +217,31 @@ function Login() {
 
           <p className="small-text mt-1 mb-1">Or</p>
 
-      <div className="flex w-full justify-around mt-4">
-  <button
-    type="button"
-    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+   <div className="flex w-full justify-around mt-2 gap-2">
+  <div
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300 cursor-pointer"
   >
-    <GrGoogle className="h-[25px] w-[25px] text-white hover:text-black" />
-  </button>
+    <GrGoogle className="h-[25px] w-[25px] text-white group-hover:text-black" />
+  </div>
 
-  <button
-    type="button"
-    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+  <div
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300 cursor-pointer"
   >
-    <GrFacebookOption className="h-[25px] w-[25px] text-white hover:text-black" />
-  </button>
+    <GrFacebookOption className="h-[25px] w-[25px] text-white group-hover:text-black" />
+  </div>
 
-  <button
-    type="button"
-    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+  <div
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300 cursor-pointer"
   >
-    <FaXTwitter className="h-[25px] w-[25px] text-white hover:text-black" />
-  </button>
+    <FaXTwitter className="h-[25px] w-[25px] text-white group-hover:text-black" />
+  </div>
 </div>
 
 
+
+
           <div className="w-full flex justify-center text-center">
-            <p className="mt-3 small-text w-full">
+            <p className="mt-2 small-text w-full">
               Don't have an account?{" "}
               <span
                 className="text-primary cursor-pointer text-center"
