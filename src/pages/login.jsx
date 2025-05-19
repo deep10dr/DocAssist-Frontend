@@ -217,17 +217,29 @@ function Login() {
 
           <p className="small-text mt-1 mb-1">Or</p>
 
-          <div className="flex w-full justify-around">
-            <button type="button" className="btn p-2 btn-other">
-              <GrGoogle />
-            </button>
-            <button type="button" className="btn p-2 btn-other">
-              <GrFacebookOption />
-            </button>
-            <button type="button" className="btn p-2 btn-other">
-              <FaXTwitter />
-            </button>
-          </div>
+      <div className="flex w-full justify-around mt-4">
+  <button
+    type="button"
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+  >
+    <GrGoogle className="h-[25px] w-[25px] text-white hover:text-black" />
+  </button>
+
+  <button
+    type="button"
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+  >
+    <GrFacebookOption className="h-[25px] w-[25px] text-white hover:text-black" />
+  </button>
+
+  <button
+    type="button"
+    className="p-2 bg-black rounded-full hover:bg-white transition-all duration-300"
+  >
+    <FaXTwitter className="h-[25px] w-[25px] text-white hover:text-black" />
+  </button>
+</div>
+
 
           <div className="w-full flex justify-center text-center">
             <p className="mt-3 small-text w-full">

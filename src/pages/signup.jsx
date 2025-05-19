@@ -1,4 +1,4 @@
-import '../assets/css/signup.css';
+
 import kitty from '../assets/images/cutty-2.png';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
