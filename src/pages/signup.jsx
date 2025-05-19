@@ -9,6 +9,8 @@ import { FaEye, FaEyeSlash, FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
+import { TiUserAdd } from "react-icons/ti";
+
 function Signup() {
   const navigate = useNavigate();
   const [value, setValue] = useState({ name: '', email: '', password: '', confirmPassword: '', agree: false });
@@ -91,7 +93,13 @@ function Signup() {
         <form className="w-full p-1 pt-3" onSubmit={handleSubmit}>
   
   {/* Name Field */}
-  <OverlayTrigger placement="bottom" overlay={<Tooltip>{errors.name}</Tooltip>}>
+  <OverlayTrigger placement="bottom" overlay={
+    errors.name ? (
+      <Tooltip>{errors.name}</Tooltip>
+    ) : (
+      <></>  // or null — nothing rendered, no tooltip
+    )
+  }>
     <div className="flex items-center h-[45px] rounded-xl bg-gradient-to-r from-white/60 via-white/80 to-white/20 shadow-md mb-2 w-full">
       <FaUser className="min-w-[40px] text-gray-700" />
       <input
@@ -106,7 +114,13 @@ function Signup() {
   </OverlayTrigger>
 
   {/* Email Field */}
-  <OverlayTrigger placement="bottom" overlay={<Tooltip>{errors.email}</Tooltip>} >
+  <OverlayTrigger placement="bottom" overlay={
+    errors.email ? (
+      <Tooltip>{errors.email}</Tooltip>
+    ) : (
+      <></>  // or null — nothing rendered, no tooltip
+    )
+  } >
     <div className="flex items-center h-[45px] rounded-xl bg-gradient-to-r from-white/60 via-white/80 to-white/20 shadow-md mb-2 w-full">
       <FaEnvelope className="min-w-[40px] text-gray-700" />
       <input
@@ -121,7 +135,13 @@ function Signup() {
   </OverlayTrigger>
 
   {/* Password Field */}
-<OverlayTrigger placement="bottom" overlay={<Tooltip>{errors.password}</Tooltip>}>
+<OverlayTrigger placement="bottom" overlay={
+    errors.password ? (
+      <Tooltip>{errors.password}</Tooltip>
+    ) : (
+      <></>  // or null — nothing rendered, no tooltip
+    )
+  }>
   <div className="flex items-center h-[45px] rounded-xl bg-gradient-to-r from-white/60 via-white/80 to-white/20 shadow-md mb-2 w-full relative">
     <FaLock className="min-w-[40px] text-gray-700" />
     
@@ -145,23 +165,39 @@ function Signup() {
 
 
   {/* Confirm Password Field */}
-  <OverlayTrigger placement="bottom" overlay={<Tooltip>{errors.confirmPassword}</Tooltip>}>
-    <div className="flex items-center h-[45px] rounded-xl bg-gradient-to-r from-white/60 via-white/80 to-white/20 shadow-md mb-2 w-full">
-      <FaLock className="min-w-[40px] text-gray-700" />
-      <input
-        type={showPassword ? "text" : "password"}
-        name="confirmPassword"
-        value={value.confirmPassword}
-        onChange={handleChange}
-        placeholder="Confirm Password"
-        className="flex-1 bg-transparent outline-none px-3"
-      />
-    </div>
-  </OverlayTrigger>
+ <OverlayTrigger 
+  placement="bottom" 
+  overlay={
+    errors.confirmPassword ? (
+      <Tooltip>{errors.confirmPassword}</Tooltip>
+    ) : (
+      <></>  // or null — nothing rendered, no tooltip
+    )
+  }
+>
+  <div className="flex items-center h-[45px] rounded-xl bg-gradient-to-r from-white/60 via-white/80 to-white/20 shadow-md mb-2 w-full">
+    <FaLock className="min-w-[40px] text-gray-700" />
+    <input
+      type={showPassword ? "text" : "password"}
+      name="confirmPassword"
+      value={value.confirmPassword}
+      onChange={handleChange}
+      placeholder="Confirm Password"
+      className="flex-1 bg-transparent outline-none px-3"
+    />
+  </div>
+</OverlayTrigger>
+
 
   {/* Checkbox Field */}
-  <OverlayTrigger placement="bottom" overlay={<Tooltip>{errors.agree}</Tooltip>}>
-    <div className="w-full flex items-center mb-2">
+  <OverlayTrigger placement="bottom"overlay={
+    errors.agree? (
+      <Tooltip>{errors.agree}</Tooltip>
+    ) : (
+      <></>  // or null — nothing rendered, no tooltip
+    )
+  }>
+    <div className="w-full flex items-center mb-2 mt-3">
       <input
         type="checkbox"
         name="agree"
@@ -174,7 +210,7 @@ function Signup() {
   </OverlayTrigger>
 
   {/* Submit Button */}
-<div className='w-full flex justify-center items-center'>  <button
+<div className='w-full flex justify-center items-center mt-4'>  <button
   type="submit"
   className="group flex justify-center items-center w-[100px] p-2 h-[44px] bg-blue-500  text-xl font-semibold shadow-md
              hover:w-[140px] transition-all duration-500 ease-in-out rounded-lg overflow-hidden relative"
@@ -185,10 +221,10 @@ function Signup() {
   </span>
 
   <span
-    className="ml-2  hidden text-4xl group-hover:flex transition-opacity duration-300 ease-in-out
+    className="ml-2  hidden text-3xl group-hover:flex transition-opacity duration-300 ease-in-out
                translate-x-2 items-center text-white"
   >
-  
+  < TiUserAdd  />
   </span>
 
   {/* Glow effect on hover */}
